@@ -1,7 +1,13 @@
 <template>
-  <div id="nav"></div>
+  <div id="app">Hello</div>
   <router-view />
 </template>
+
+<script>
+export default {
+  data() {},
+};
+</script>
 
 <style>
 * {
