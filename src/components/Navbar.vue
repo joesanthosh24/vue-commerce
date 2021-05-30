@@ -23,6 +23,9 @@ export default {
 .navbar {
   background-color: rgba(39, 209, 82, 0.7);
   padding: 20px;
+  position: fixed;
+  width: 100vw;
+  z-index: 99;
 }
 
 .navbar__home {
@@ -46,6 +49,7 @@ export default {
 .navbar__items {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
 .navbar__item {
