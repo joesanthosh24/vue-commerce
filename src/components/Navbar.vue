@@ -39,11 +39,20 @@ export default {
   margin-right: 10px;
 }
 
+.navbar__home span {
+  color: #fff;
+}
+
 .navbar > ul {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+li {
+  cursor: pointer;
+  color: #fff;
 }
 
 .navbar__items {
@@ -54,5 +63,9 @@ export default {
 
 .navbar__item {
   margin-right: 20px;
+}
+
+.navbar__item > i {
+  color: #fff;
 }
 </style>
