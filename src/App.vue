@@ -2,9 +2,7 @@
   <div>
     <app-navbar></app-navbar>
   </div>
-  <app-container>
-    <router-view />
-  </app-container>
+  <router-view />
 </template>
 
 <script>
@@ -26,5 +24,9 @@ export default {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   color: #000;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

@@ -1,9 +1,11 @@
 <template>
   <nav class="navbar">
     <ul>
-      <li class="navbar__home">
-        <img src="@/assets/logo.png" alt="Logo" /> <span>VueCommerce</span>
-      </li>
+      <router-link to="/">
+        <li class="navbar__home">
+          <img src="@/assets/logo.png" alt="Logo" /> <span>VueCommerce</span>
+        </li>
+      </router-link>
       <div class="navbar__items">
         <li class="navbar__item">Login</li>
         <li class="navbar__item">Sign Up</li>
