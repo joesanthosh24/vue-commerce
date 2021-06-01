@@ -67,8 +67,8 @@ export default {
 <style scoped>
 .product {
   margin-right: 20px;
-  height: 20%;
-  width: 20%;
+  /* height: 20%;
+  width: 20%; */
 }
 
 .productImage {
@@ -113,5 +113,25 @@ export default {
 
 i {
   margin-right: 10px;
+}
+
+@media screen and (max-width: 1606px) {
+  .product {
+    height: auto;
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .product {
+    height: auto;
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product {
+    width: 100%;
+  }
 }
 </style>
