@@ -29,4 +29,8 @@ export default {
 a {
   text-decoration: none;
 }
+
+i {
+  color: #fff;
+}
 </style>

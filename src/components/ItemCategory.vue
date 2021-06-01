@@ -36,6 +36,7 @@ export default {
 
 .products {
   margin: 5px 10px 10px 0;
+  width: 100%;
   padding-left: 0;
   display: flex;
   align-items: center;

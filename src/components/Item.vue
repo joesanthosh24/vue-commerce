@@ -3,18 +3,19 @@
     <div class="productImage" @mouseenter="enterImage" @mouseleave="leaveImage">
       <img :src="item.imgUrl" :alt="item.name" />
       <transition name="appear">
-        <app-button
-          pt="10"
-          pb="10"
-          pl="20"
-          pr="20"
-          ml="auto"
-          mr="auto"
-          :secondary="true"
-          v-if="showDetailButton"
-          br="15"
-          >More Details</app-button
-        >
+        <div class="detailButtonContainer" v-if="showDetailButton">
+          <app-button
+            pt="10"
+            pb="10"
+            pl="20"
+            pr="20"
+            ml="auto"
+            mr="auto"
+            :secondary="true"
+            br="15"
+            >More Details</app-button
+          >
+        </div>
       </transition>
     </div>
     <div class="productDetails">
@@ -24,6 +25,17 @@
       </p>
       <span>${{ item.price }}</span>
     </div>
+    <app-button
+      mt="5"
+      pt="10"
+      pb="10"
+      pl="20"
+      pr="20"
+      br="20"
+      :primary="true"
+      width="expanded"
+      ><i class="fas fa-cart-plus"></i>Add To Cart</app-button
+    >
   </li>
 </template>
 
@@ -55,11 +67,13 @@ export default {
 <style scoped>
 .product {
   margin-right: 20px;
+  height: 20%;
+  width: 20%;
 }
 
 .productImage {
-  height: 400px;
-  width: 400px;
+  height: 264px;
+  width: 100%;
   border-radius: 15px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -79,10 +93,14 @@ export default {
   justify-content: space-between;
 }
 
-button {
+.detailButtonContainer {
   position: absolute;
-  top: 200px;
-  left: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 264px;
+  width: 100%;
+  top: 0;
 }
 
 .appear-enter-from {
@@ -91,5 +109,9 @@ button {
 
 .appear-enter-active {
   transition: opacity 0.5s linear;
+}
+
+i {
+  margin-right: 10px;
 }
 </style>

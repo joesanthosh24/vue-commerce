@@ -21,6 +21,7 @@
         : '#000',
       borderRadius: `${br}px` || 0,
       border: 'none',
+      width: getWidth(),
     }"
   >
     <slot />
@@ -44,7 +45,20 @@ export default {
     "dark",
     "light",
     "br",
+    "width",
   ],
+  methods: {
+    getWidth() {
+      switch (this.width) {
+        case "expanded":
+          return "100%";
+        case "half":
+          return "50%";
+        default:
+          return "auto";
+      }
+    },
+  },
 };
 </script>
 
