@@ -1,17 +1,20 @@
 <template>
   <app-container>
-    <form @submit.prevent="submit">
+    <vee-form @submit.prevent="submit" :validation-schema="schema">
       <div class="input-container">
         <label for="name">Name: </label>
-        <input id="name" name="name" />
+        <vee-field id="name" name="name" />
+        <error-message class="text-red-600" name="name" />
       </div>
       <div class="input-container">
         <label for="email">Email: </label>
-        <input id="email" type="email" name="email" />
+        <vee-field id="email" type="email" name="email" />
+        <error-message class="text-red-600" name="email" />
       </div>
       <div class="input-container">
         <label for="password">Password: </label>
-        <input id="password" type="password" name="password" />
+        <vee-field id="password" type="password" name="password" />
+        <error-message class="text-red-600" name="password" />
       </div>
       <app-button
         type="submit"
@@ -22,7 +25,7 @@
         br="30"
         >Login</app-button
       >
-    </form>
+    </vee-form>
   </app-container>
 </template>
 
@@ -35,6 +38,15 @@ export default {
   components: {
     appContainer: Container,
     appButton: Button,
+  },
+  data() {
+    return {
+      schema: {
+        name: "required",
+        email: "required|email",
+        password: "required|min:3|max:100",
+      },
+    };
   },
   methods: {
     submit() {},
