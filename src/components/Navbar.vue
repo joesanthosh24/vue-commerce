@@ -7,8 +7,12 @@
         </li>
       </router-link>
       <div class="navbar__items">
-        <li class="navbar__item">Login</li>
-        <li class="navbar__item">Sign Up</li>
+        <router-link to="/login">
+          <li class="navbar__item">Login</li>
+        </router-link>
+        <router-link to="/signup">
+          <li class="navbar__item">Sign Up</li>
+        </router-link>
         <li class="navbar__item"><i class="fas fa-shopping-cart"></i></li>
       </div>
     </ul>

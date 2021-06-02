@@ -23,6 +23,7 @@
       border: 'none',
       width: getWidth(),
     }"
+    :type="type || 'button'"
   >
     <slot />
   </button>
@@ -46,6 +47,8 @@ export default {
     "light",
     "br",
     "width",
+    "type",
+    "outline",
   ],
   methods: {
     getWidth() {
@@ -54,6 +57,10 @@ export default {
           return "100%";
         case "half":
           return "50%";
+        case "3":
+          return "75%";
+        case "1":
+          return "25%";
         default:
           return "auto";
       }
