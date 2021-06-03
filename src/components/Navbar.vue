@@ -86,6 +86,6 @@ li {
 }
 
 .fa-cart-plus {
-  color: red;
+  color: rgb(223, 7, 7);
 }
 </style>
