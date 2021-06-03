@@ -13,15 +13,23 @@
         <router-link to="/signup">
           <li class="navbar__item">Sign Up</li>
         </router-link>
-        <li class="navbar__item"><i class="fas fa-shopping-cart"></i></li>
+        <li class="navbar__item">
+          <i v-if="cartSize === 0" class="fas fa-shopping-cart"></i>
+          <i v-else class="fas fa-cart-plus"></i>
+        </li>
       </div>
     </ul>
   </nav>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Navbar",
+  computed: {
+    ...mapGetters(["cartSize"]),
+  },
 };
 </script>
 
@@ -71,7 +79,11 @@ li {
   margin-right: 20px;
 }
 
-.navbar__item > i {
+.fa-shopping-cart {
   color: #fff;
+}
+
+.fa-cart-plus {
+  color: red;
 }
 </style>

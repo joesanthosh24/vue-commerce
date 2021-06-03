@@ -34,12 +34,16 @@
       br="20"
       :primary="true"
       width="expanded"
-      ><i class="fas fa-cart-plus"></i>Add To Cart</app-button
+      @click="addItemToCart(item)"
     >
+      <i class="fas fa-cart-plus"></i>Add To Cart
+    </app-button>
   </li>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import Button from "./Button.vue";
 
 export default {
@@ -60,6 +64,7 @@ export default {
     leaveImage() {
       this.showDetailButton = false;
     },
+    ...mapActions(["addItemToCart"]),
   },
 };
 </script>

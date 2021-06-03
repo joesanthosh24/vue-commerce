@@ -6,13 +6,23 @@
       <p>Shop online for electronics, clothing, games, and more</p>
       <div class="home__buttons">
         <router-link to="/items">
-          <app-button pl="15" pr="15" pt="5" pb="5" mr="15" :dark="true" br="15"
-            >Shop Items</app-button
+          <app-button
+            pl="15"
+            pr="15"
+            pt="5"
+            pb="5"
+            mr="15"
+            :dark="true"
+            br="15"
           >
+            Shop Items
+          </app-button>
         </router-link>
-        <app-button pl="15" pr="15" pt="5" pb="5" :light="true" br="15"
-          >Sign Up</app-button
-        >
+        <router-link to="/signup">
+          <app-button pl="15" pr="15" pt="5" pb="5" :light="true" br="15">
+            Sign Up
+          </app-button>
+        </router-link>
       </div>
     </div>
   </div>
