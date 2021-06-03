@@ -13,10 +13,12 @@
         <router-link to="/signup">
           <li class="navbar__item">Sign Up</li>
         </router-link>
-        <li class="navbar__item">
-          <i v-if="cartSize === 0" class="fas fa-shopping-cart"></i>
-          <i v-else class="fas fa-cart-plus"></i>
-        </li>
+        <router-link to="/cart">
+          <li class="navbar__item">
+            <i v-if="cartSize === 0" class="fas fa-shopping-cart"></i>
+            <i v-else class="fas fa-cart-plus"></i>
+          </li>
+        </router-link>
       </div>
     </ul>
   </nav>

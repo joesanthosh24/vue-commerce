@@ -95,56 +95,56 @@ export default {
           category: "Electronics",
           products: [
             {
-              id: 1,
+              id: 10,
               name: "Macbook Pro M1 Chip",
               imgUrl:
                 "https://9to5toys.com/wp-content/uploads/sites/5/2021/05/macOS-11.3-M1-MacBook-Pro.jpg?w=1200&h=600&crop=1",
               price: 2100,
             },
             {
-              id: 2,
+              id: 11,
               name: "Playstation 5",
               imgUrl:
                 "https://gmedia.playstation.com/is/image/SIEPDC/playstation-5-digital-edition-with-dualsense-front-product-shot-01-ps5-en-30jul20?$native--t$",
               price: 510,
             },
             {
-              id: 3,
+              id: 12,
               name: "Beats Noise Cancelling Headphones",
               imgUrl:
                 "https://cdn.shopify.com/s/files/1/0036/4806/1509/products/6255b59cf770f1559185480767470aa063e48eab_square2963711_1_140x140@2x.jpg?v=1601994669",
               price: 320,
             },
             {
-              id: 4,
+              id: 13,
               name: "128 GB IPhone XR",
               imgUrl:
                 "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xr-white-select-201809?wid=940&hei=1112&fmt=png-alpha&.v=1551226036668",
               price: 660,
             },
             {
-              id: 5,
+              id: 14,
               name: "Amazon Fitbit Versa 2",
               imgUrl:
                 "https://images-na.ssl-images-amazon.com/images/I/61TMCC7npPL._AC_SX425_.jpg",
               price: 212,
             },
             {
-              id: 6,
+              id: 15,
               name: "Surface Pro 7",
               imgUrl:
                 "https://icdn.digitaltrends.com/image/digitaltrends/microsoftsurfacepro7-7.jpg",
               price: 680,
             },
             {
-              id: 7,
+              id: 16,
               name: "Xbox Series X",
               imgUrl:
                 "https://static.lenovo.com/na/landing-pages/xbox/lenovo-xbox-brandpage-series-x.jpg",
               price: 550,
             },
             {
-              id: 8,
+              id: 17,
               name: 'Dell 49" Monitor',
               imgUrl:
                 "https://images-na.ssl-images-amazon.com/images/I/81ZXKUvoyuL._AC_SX450_.jpg",
