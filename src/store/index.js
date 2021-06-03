@@ -6,7 +6,7 @@ export default createStore({
   },
   mutations: {
     addToCart(state, payload) {
-      state.cartItems.push({ ...payload, amount: 0 });
+      state.cartItems.push({ ...payload, amount: 1 });
     },
     increaseAmount(state, index) {
       state.cartItems[index].amount += 1;
