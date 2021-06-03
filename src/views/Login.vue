@@ -5,10 +5,12 @@
         <label for="email">Email: </label>
         <vee-field id="email" type="email" name="email" />
       </div>
+      <error-message class="error" name="email" />
       <div class="input-container">
         <label for="password">Password: </label>
         <vee-field id="password" type="password" name="password" />
       </div>
+      <error-message class="error" name="password" />
       <app-button
         type="submit"
         width="3"
@@ -18,8 +20,6 @@
         br="30"
         >Login</app-button
       >
-      <error-message class="text-red-600" name="email" />
-      <error-message class="text-red-600" name="password" />
     </vee-form>
   </app-container>
 </template>

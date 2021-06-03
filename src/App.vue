@@ -33,4 +33,12 @@ a {
 i {
   color: #fff;
 }
+
+.error {
+  text-align: center;
+  color: rgb(173, 83, 83);
+  margin-bottom: 10px;
+  width: 75%;
+  padding: 5px;
+}
 </style>

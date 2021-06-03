@@ -4,18 +4,18 @@
       <div class="input-container">
         <label for="name">Name: </label>
         <vee-field id="name" name="name" />
-        <error-message class="text-red-600" name="name" />
       </div>
+      <error-message class="error" name="name" />
       <div class="input-container">
         <label for="email">Email: </label>
         <vee-field id="email" type="email" name="email" />
-        <error-message class="text-red-600" name="email" />
       </div>
+      <error-message class="error" name="email" />
       <div class="input-container">
         <label for="password">Password: </label>
         <vee-field id="password" type="password" name="password" />
-        <error-message class="text-red-600" name="password" />
       </div>
+      <error-message class="error" name="password" />
       <app-button
         type="submit"
         width="3"
