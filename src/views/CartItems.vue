@@ -6,6 +6,7 @@
       No Items in Cart.
       <span class="add-items" @click="goToItems">Add Items</span>
     </p>
+    <app-cart-total v-if="cartSize > 0" />
   </app-container>
 </template>
 
@@ -15,6 +16,7 @@ import { mapState, mapGetters } from "vuex";
 import Container from "../components/Container.vue";
 import Item from "../components/Item.vue";
 import CartItemsContainer from "../components/CartItemsContainer.vue";
+import CartTotal from "../components/CartTotal.vue";
 
 export default {
   name: "CartItems",
@@ -22,6 +24,7 @@ export default {
     appContainer: Container,
     appItem: Item,
     appCartContainer: CartItemsContainer,
+    appCartTotal: CartTotal,
   },
   methods: {
     goToItems() {

@@ -60,6 +60,12 @@ export default createStore({
     cartSize(state) {
       return state.cartItems.length;
     },
+    cartTotalPrice(state) {
+      return state.cartItems.reduce(
+        (acc, currItem) => acc + currItem.amount * currItem.price,
+        0
+      );
+    },
   },
   modules: {},
 });
