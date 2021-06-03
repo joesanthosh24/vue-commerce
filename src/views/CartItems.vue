@@ -1,9 +1,7 @@
 <template>
   <app-container>
     <h1>Cart Items</h1>
-    <div v-if="cartSize > 0" class="items">
-      <p v-for="item in items" :key="item.id">{{ item.name }}</p>
-    </div>
+    <app-cart-container v-if="cartSize > 0" :items="items" />
     <p v-else class="no-items">
       No Items in Cart.
       <span class="add-items" @click="goToItems">Add Items</span>
@@ -16,12 +14,14 @@ import { mapState, mapGetters } from "vuex";
 
 import Container from "../components/Container.vue";
 import Item from "../components/Item.vue";
+import CartItemsContainer from "../components/CartItemsContainer.vue";
 
 export default {
   name: "CartItems",
   components: {
     appContainer: Container,
     appItem: Item,
+    appCartContainer: CartItemsContainer,
   },
   methods: {
     goToItems() {
