@@ -1,6 +1,23 @@
 <template>
   <app-container>
-    <vee-form @submit.prevent="submit" :validation-schema="schema">
+    <vee-form @submit="submit" :validation-schema="schema">
+      <div
+        class="alert"
+        v-if="show_alert"
+        :style="{
+          backgroundColor: alert_color,
+          padding: '10px',
+          margin: '20px',
+          color: '#fff',
+          width: '75%',
+          display: 'flex',
+        }"
+      >
+        <div class="alert-msg">
+          <p>{{ reg_alert }}</p>
+        </div>
+        <i @click="show_alert = false" class="fas fa-times"></i>
+      </div>
       <div class="input-container">
         <label for="name">Name: </label>
         <vee-field id="name" name="name" />
@@ -23,13 +40,15 @@
         pb="10"
         :primary="true"
         br="30"
-        >Login</app-button
+        >Sign Up</app-button
       >
     </vee-form>
   </app-container>
 </template>
 
 <script>
+import firebase from "@/includes/firebase";
+
 import Container from "../components/Container.vue";
 import Button from "../components/Button.vue";
 
@@ -46,10 +65,36 @@ export default {
         email: "required|email",
         password: "required|min:3|max:100",
       },
+      show_alert: false,
+      reg_alert: "",
+      alert_color: "rgba(5, 116, 33, 0.7)",
     };
   },
   methods: {
-    submit() {},
+    async submit(values) {
+      console.log(values);
+      this.show_alert = true;
+      this.alert_color = "rgba(5, 116, 33, 0.7)";
+      this.reg_alert = "Creating User. Please Wait";
+
+      let userCredentials = null;
+      try {
+        userCredentials = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(values.email, values.password);
+      } catch (err) {
+        console.log(err);
+        this.show_alert = true;
+        this.alert_color = "rgb(223, 7, 7)";
+        this.reg_alert = "Unexpected error when creating account";
+        return;
+      }
+
+      this.show_alert = true;
+      this.alert_color = "rgba(5, 116, 33, 0.7)";
+      this.reg_alert = "Success Creating Account";
+      console.log(userCredentials);
+    },
   },
 };
 </script>
@@ -66,6 +111,19 @@ form {
   width: 100%;
   padding-top: 140px;
 }
+
+.alert-msg {
+  flex: 1;
+}
+
+.alert-msg > p {
+  color: #fff;
+}
+
+.alert > i {
+  cursor: pointer;
+}
+
 .input-container {
   display: flex;
   justify-content: space-between;
