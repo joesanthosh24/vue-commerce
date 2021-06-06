@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import firebase from "@/includes/firebase";
+import { auth, usersCollection } from "@/includes/firebase";
 
 import Container from "../components/Container.vue";
 import Button from "../components/Button.vue";
@@ -72,18 +72,30 @@ export default {
   },
   methods: {
     async submit(values) {
-      console.log(values);
       this.show_alert = true;
       this.alert_color = "rgba(5, 116, 33, 0.7)";
       this.reg_alert = "Creating User. Please Wait";
 
       let userCredentials = null;
+
       try {
-        userCredentials = await firebase
-          .auth()
-          .createUserWithEmailAndPassword(values.email, values.password);
+        userCredentials = await auth.createUserWithEmailAndPassword(
+          values.email,
+          values.password
+        );
       } catch (err) {
-        console.log(err);
+        this.show_alert = true;
+        this.alert_color = "rgb(223, 7, 7)";
+        this.reg_alert = "Unexpected error when creating account";
+        return;
+      }
+
+      try {
+        await usersCollection.add({
+          name: values.name,
+          email: values.email,
+        });
+      } catch (err) {
         this.show_alert = true;
         this.alert_color = "rgb(223, 7, 7)";
         this.reg_alert = "Unexpected error when creating account";
@@ -93,7 +105,6 @@ export default {
       this.show_alert = true;
       this.alert_color = "rgba(5, 116, 33, 0.7)";
       this.reg_alert = "Success Creating Account";
-      console.log(userCredentials);
     },
   },
 };
