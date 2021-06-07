@@ -84,8 +84,28 @@ export default createStore({
 
       commit("toggleAuthentication");
     },
+    async login({ commit }, payload) {
+      await auth.signInWithEmailAndPassword(payload.email, payload.password);
+
+      commit("toggleAuthentication");
+    },
+    initLogin({ commit }) {
+      // Retrieve authentication status from firebase
+      const user = auth.currentUser;
+
+      // Check if they're logged in based on value retrieved
+      if (user) {
+        commit("toggleAuthentication");
+      }
+    },
+    async signOut({ commit }) {
+      await auth.signOut();
+
+      commit("toggleAuthentication");
+    },
   },
   getters: {
+    // Shopping Cart
     cartSize(state) {
       return state.cartItems.length;
     },

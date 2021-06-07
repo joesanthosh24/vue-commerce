@@ -14,6 +14,9 @@ export default {
     appNavbar: Navbar,
     appContainer: Container,
   },
+  created() {
+    this.$store.dispatch("initLogin");
+  },
 };
 </script>
 

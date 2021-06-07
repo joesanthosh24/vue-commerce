@@ -7,12 +7,17 @@
         </li>
       </router-link>
       <div class="navbar__items">
-        <router-link to="/login">
-          <li class="navbar__item">Login</li>
-        </router-link>
-        <router-link to="/signup">
-          <li class="navbar__item">Sign Up</li>
-        </router-link>
+        <template v-if="!isLoggedIn">
+          <router-link to="/login">
+            <li class="navbar__item">Login</li>
+          </router-link>
+          <router-link to="/signup">
+            <li class="navbar__item">Sign Up</li>
+          </router-link>
+        </template>
+        <li class="navbar__item" v-if="isLoggedIn" @click.prevent="signOut">
+          Logout
+        </li>
         <router-link to="/cart">
           <li class="navbar__item">
             <i v-if="cartSize === 0" class="fas fa-shopping-cart"></i>
@@ -25,12 +30,18 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState, mapActions } from "vuex";
 
 export default {
   name: "Navbar",
   computed: {
     ...mapGetters(["cartSize"]),
+    ...mapState({
+      isLoggedIn: "userLoggedIn",
+    }),
+  },
+  methods: {
+    ...mapActions(["signOut"]),
   },
 };
 </script>

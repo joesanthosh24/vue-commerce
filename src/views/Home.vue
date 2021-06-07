@@ -29,12 +29,24 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import Button from "../components/Button.vue";
 
 export default {
   name: "Home",
   components: {
     appButton: Button,
+  },
+  computed: {
+    ...mapState({
+      isLoggedIn: "userLoggedIn",
+    }),
+  },
+  created() {
+    if (this.isLoggedIn) {
+      this.$router.push("/items");
+    }
   },
 };
 </script>

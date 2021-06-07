@@ -5,12 +5,15 @@
       :key="item.id"
       :category="item.category"
       :items="item.products"
+      :disableAddButton="true"
     >
     </app-item-category>
   </app-container>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import Container from "../components/Container.vue";
 import ItemCategory from "../components/ItemCategory.vue";
 
@@ -161,6 +164,9 @@ export default {
 
       return entries.map((entry) => ({ id: entry, ...this.items[entry] }));
     },
+    ...mapState({
+      isLoggedIn: "userLoggedIn",
+    }),
   },
 };
 </script>

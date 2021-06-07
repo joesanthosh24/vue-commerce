@@ -1,6 +1,23 @@
 <template>
   <app-container>
-    <vee-form @submit.prevent="submit" :validation-schema="schema">
+    <vee-form @submit="submit" :validation-schema="schema">
+      <div
+        class="alert"
+        v-if="show_alert"
+        :style="{
+          backgroundColor: alert_color,
+          padding: '10px',
+          margin: '20px',
+          color: '#fff',
+          width: '75%',
+          display: 'flex',
+        }"
+      >
+        <div class="alert-msg">
+          <p>{{ login_alert }}</p>
+        </div>
+        <i @click="show_alert = false" class="fas fa-times"></i>
+      </div>
       <div class="input-container">
         <label for="email">Email: </label>
         <vee-field id="email" type="email" name="email" />
@@ -40,10 +57,32 @@ export default {
         email: "required|email",
         password: "required|min:3|max:100",
       },
+      show_alert: false,
+      login_alert: "",
+      alert_color: "rgba(5, 116, 33, 0.7)",
     };
   },
   methods: {
-    submit() {},
+    async submit(values) {
+      this.show_alert = true;
+      this.alert_color = "rgba(5, 116, 33, 0.7)";
+      this.login_alert = "Loggin in User. Please Wait";
+
+      try {
+        await this.$store.dispatch("login", values);
+      } catch (err) {
+        this.show_alert = true;
+        this.alert_color = "rgb(223, 7, 7)";
+        this.login_alert = "Invalid Login Details";
+        return;
+      }
+
+      this.show_alert = true;
+      this.alert_color = "rgba(5, 116, 33, 0.7)";
+      this.login_alert = "Successful Login";
+
+      this.$router.push("/items");
+    },
   },
 };
 </script>
@@ -66,6 +105,18 @@ form {
   align-items: center;
   width: 75%;
   margin-bottom: 10px;
+}
+
+.alert-msg {
+  flex: 1;
+}
+
+.alert-msg > p {
+  color: #fff;
+}
+
+.alert > i {
+  cursor: pointer;
 }
 
 input {

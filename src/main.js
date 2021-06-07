@@ -5,12 +5,19 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import VeeValidatorPlugin from "./includes/validation";
-import "./includes/firebase";
+import { auth } from "./includes/firebase";
 
-const app = createApp(App);
+// set a variable which will be set to createApp() if app isn't initialized in onAuthStateChanged()
+let app;
 
-app.use(store);
-app.use(router);
-app.use(VeeValidatorPlugin);
+auth.onAuthStateChanged(() => {
+  if (!app) {
+    app = createApp(App);
 
-app.mount("#app");
+    app.use(store);
+    app.use(router);
+    app.use(VeeValidatorPlugin);
+
+    app.mount("#app");
+  }
+});

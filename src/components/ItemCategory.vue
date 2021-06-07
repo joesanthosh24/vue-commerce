@@ -2,7 +2,13 @@
   <div class="items">
     <h2>{{ category }}</h2>
     <ul class="products">
-      <app-item v-for="item of items" :key="item.id" :item="item"> </app-item>
+      <app-item
+        :disableButton="disableAddButton"
+        v-for="item of items"
+        :key="item.id"
+        :item="item"
+      >
+      </app-item>
     </ul>
   </div>
 </template>
@@ -23,6 +29,10 @@ export default {
     items: {
       type: Array,
       required: true,
+    },
+    disableAddButton: {
+      type: Boolean,
+      default: false,
     },
   },
 };

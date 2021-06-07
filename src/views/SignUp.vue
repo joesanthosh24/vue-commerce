@@ -86,6 +86,8 @@ export default {
       this.show_alert = true;
       this.alert_color = "rgba(5, 116, 33, 0.7)";
       this.reg_alert = "Success Creating Account";
+
+      this.$router.push("/items");
     },
   },
 };

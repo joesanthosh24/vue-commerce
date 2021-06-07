@@ -35,6 +35,7 @@
       :primary="true"
       width="expanded"
       @click="addItemToCart(item)"
+      :disabled="disableButton"
     >
       <i class="fas fa-cart-plus"></i>Add To Cart
     </app-button>
@@ -51,7 +52,7 @@ export default {
   components: {
     appButton: Button,
   },
-  props: ["item"],
+  props: ["item", "disableButton"],
   data() {
     return {
       showDetailButton: false,

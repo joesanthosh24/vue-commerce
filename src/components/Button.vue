@@ -1,5 +1,7 @@
 <template>
   <button
+    :disabled="disabled"
+    :title="disabled ? 'Cannot Add Item' : 'Add Item'"
     :style="{
       paddingTop: `${pt}px` || '5px',
       paddingBottom: `${pb}px` || '5px',
@@ -49,6 +51,7 @@ export default {
     "width",
     "type",
     "outline",
+    "disabled",
   ],
   methods: {
     getWidth() {
@@ -72,5 +75,9 @@ export default {
 <style scoped>
 button {
   cursor: pointer;
+}
+
+button:disabled {
+  cursor: no-drop;
 }
 </style>
