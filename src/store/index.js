@@ -1,10 +1,13 @@
 import { createStore } from "vuex";
+import { auth, usersCollection } from "@/includes/firebase";
 
 export default createStore({
   state: {
     cartItems: [],
+    userLoggedIn: false,
   },
   mutations: {
+    // Shopping Cart
     addToCart(state, payload) {
       state.cartItems.push({ ...payload, amount: 1 });
     },
@@ -17,8 +20,13 @@ export default createStore({
     decreaseAmount(state, index) {
       state.cartItems[index].amount -= 1;
     },
+    // User Auth
+    toggleAuthentication(state) {
+      state.userLoggedIn = !state.userLoggedIn;
+    },
   },
   actions: {
+    // Shopping Cart
     addItemToCart({ commit, state }, item) {
       let index = state.cartItems.findIndex(
         (cartItem) => cartItem.id === item.id
@@ -54,6 +62,27 @@ export default createStore({
           commit("decreaseAmount", index);
         }
       }
+    },
+    // User Authentication
+    async register({ commit }, payload) {
+      const userCredentials = await auth.createUserWithEmailAndPassword(
+        payload.email,
+        payload.password
+      );
+
+      const { user } = userCredentials;
+
+      // userCredentials.user.uid is the user id generated when createing the user with firebase
+      await usersCollection.doc(user.uid).set({
+        name: payload.name,
+        email: payload.email,
+      });
+
+      await user.updateProfile({
+        displayName: payload.name,
+      });
+
+      commit("toggleAuthentication");
     },
   },
   getters: {
