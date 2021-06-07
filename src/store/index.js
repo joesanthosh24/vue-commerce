@@ -20,6 +20,9 @@ export default createStore({
     decreaseAmount(state, index) {
       state.cartItems[index].amount -= 1;
     },
+    clearCart(state) {
+      state.cartItems = [];
+    },
     // User Auth
     toggleAuthentication(state) {
       state.userLoggedIn = !state.userLoggedIn;
@@ -102,6 +105,7 @@ export default createStore({
       await auth.signOut();
 
       commit("toggleAuthentication");
+      commit("clearCart");
     },
   },
   getters: {

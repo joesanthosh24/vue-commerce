@@ -5,7 +5,7 @@
       :key="item.id"
       :category="item.category"
       :items="item.products"
-      :disableAddButton="true"
+      :disableAddButton="!isLoggedIn"
     >
     </app-item-category>
   </app-container>
