@@ -14,7 +14,9 @@ export default {
     appNavbar: Navbar,
     appContainer: Container,
   },
-  created() {
+  async created() {
+    await this.$store.dispatch("initializeShopItems");
+
     this.$store.dispatch("initLogin");
   },
 };

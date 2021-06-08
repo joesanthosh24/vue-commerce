@@ -1,10 +1,11 @@
 import { createStore } from "vuex";
-import { auth, usersCollection } from "@/includes/firebase";
+import { auth, usersCollection, itemsCollection } from "@/includes/firebase";
 
 export default createStore({
   state: {
     cartItems: [],
     userLoggedIn: false,
+    shopItems: {},
   },
   mutations: {
     // Shopping Cart
@@ -22,6 +23,10 @@ export default createStore({
     },
     clearCart(state) {
       state.cartItems = [];
+    },
+    // Shopping Items
+    initItems(state, items) {
+      state.shopItems = items;
     },
     // User Auth
     toggleAuthentication(state) {
@@ -65,6 +70,32 @@ export default createStore({
           commit("decreaseAmount", index);
         }
       }
+    },
+    // Shopping Items
+    async initializeShopItems({ commit }) {
+      const shopItems = {};
+
+      await itemsCollection.onSnapshot((items) => {
+        items.docs.forEach((doc) => {
+          const { category, description, imgUrl, name, price } = doc.data();
+
+          if (!shopItems[category]) {
+            shopItems[category] = {};
+            shopItems[category].category = category;
+            shopItems[category].products = [];
+          }
+
+          shopItems[category].products.push({
+            description,
+            imgUrl,
+            name,
+            price,
+            id: doc.id,
+          });
+        });
+      });
+
+      commit("initItems", shopItems);
     },
     // User Authentication
     async register({ commit }, payload) {

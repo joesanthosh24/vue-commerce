@@ -17,5 +17,6 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 const usersCollection = db.collection("users");
+const itemsCollection = db.collection("items");
 
-export { auth, db, usersCollection };
+export { auth, db, usersCollection, itemsCollection };
