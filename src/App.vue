@@ -15,9 +15,9 @@ export default {
     appContainer: Container,
   },
   async created() {
-    await this.$store.dispatch("initializeShopItems");
+    this.$store.dispatch("initApp");
 
-    this.$store.dispatch("initLogin");
+    await this.$store.dispatch("initializeShopItems");
   },
 };
 </script>

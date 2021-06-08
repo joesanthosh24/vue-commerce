@@ -1,7 +1,7 @@
 <template>
   <app-container>
     <app-item-category
-      v-for="item of items"
+      v-for="item of shopItems"
       :key="item.category"
       :category="item.category"
       :items="item.products"
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 import Container from "@/components/Container.vue";
 import ItemCategory from "@/components/ItemCategory.vue";
@@ -31,11 +31,10 @@ export default {
   computed: {
     ...mapState({
       isLoggedIn: "userLoggedIn",
+    }),
+    ...mapGetters({
       shopItems: "shopItems",
     }),
-  },
-  created() {
-    this.items = this.shopItems;
   },
 };
 </script>

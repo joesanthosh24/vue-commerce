@@ -73,25 +73,11 @@ export default createStore({
     },
     // Shopping Items
     async initializeShopItems({ commit }) {
-      const shopItems = {};
+      const shopItems = [];
 
       await itemsCollection.onSnapshot((items) => {
         items.docs.forEach((doc) => {
-          const { category, description, imgUrl, name, price } = doc.data();
-
-          if (!shopItems[category]) {
-            shopItems[category] = {};
-            shopItems[category].category = category;
-            shopItems[category].products = [];
-          }
-
-          shopItems[category].products.push({
-            description,
-            imgUrl,
-            name,
-            price,
-            id: doc.id,
-          });
+          shopItems.push({ ...doc.data(), id: doc.id });
         });
       });
 
@@ -123,7 +109,7 @@ export default createStore({
 
       commit("toggleAuthentication");
     },
-    initLogin({ commit }) {
+    async initApp({ commit }) {
       // Retrieve authentication status from firebase
       const user = auth.currentUser;
 
@@ -131,8 +117,10 @@ export default createStore({
       if (user) {
         commit("toggleAuthentication");
       }
+
+      await this.dispatch("initializeShopItems");
     },
-    async signOut({ commit }) {
+    async signOut({ commit, dispatch }) {
       await auth.signOut();
 
       commit("toggleAuthentication");
@@ -149,6 +137,29 @@ export default createStore({
         (acc, currItem) => acc + currItem.amount * currItem.price,
         0
       );
+    },
+    shopItems(state) {
+      const shopItems = {};
+
+      state.shopItems.forEach(
+        ({ category, description, imgUrl, name, price, id }) => {
+          if (!shopItems[category]) {
+            shopItems[category] = {};
+            shopItems[category].category = category;
+            shopItems[category].products = [];
+          }
+
+          shopItems[category].products.push({
+            description,
+            imgUrl,
+            name,
+            price,
+            id,
+          });
+        }
+      );
+
+      return shopItems;
     },
   },
   modules: {},
