@@ -5,7 +5,7 @@
       <h1>Welcome to VueCommerce</h1>
       <p>Shop online for electronics, clothing, games, and more</p>
       <div class="home__buttons">
-        <router-link to="/items">
+        <router-link to="/login">
           <app-button
             pl="15"
             pr="15"
@@ -15,7 +15,7 @@
             :dark="true"
             br="15"
           >
-            Shop Items
+            Login
           </app-button>
         </router-link>
         <router-link to="/signup">
