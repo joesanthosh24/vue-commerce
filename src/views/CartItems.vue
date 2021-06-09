@@ -13,6 +13,8 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 
+import store from "@/store";
+
 import Container from "../components/Container.vue";
 import Item from "../components/Item.vue";
 import CartItemsContainer from "../components/CartItemsContainer.vue";
@@ -36,6 +38,13 @@ export default {
     ...mapState({
       items: "cartItems",
     }),
+  },
+  beforeRouteEnter(to, from, next) {
+    if (store.state.userLoggedIn) {
+      next();
+    } else {
+      next({ name: "Home" });
+    }
   },
 };
 </script>

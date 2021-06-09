@@ -120,7 +120,7 @@ export default createStore({
 
       await this.dispatch("initializeShopItems");
     },
-    async signOut({ commit, dispatch }) {
+    async signOut({ commit }) {
       await auth.signOut();
 
       commit("toggleAuthentication");
