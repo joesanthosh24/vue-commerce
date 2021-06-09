@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import Container from "../components/Container.vue";
 import Button from "../components/Button.vue";
 
@@ -83,6 +85,16 @@ export default {
 
       this.$router.push("/items");
     },
+  },
+  computed: {
+    ...mapState({
+      isLoggedIn: "userLoggedIn",
+    }),
+  },
+  created() {
+    if (this.isLoggedIn) {
+      this.$router.push("/items");
+    }
   },
 };
 </script>
