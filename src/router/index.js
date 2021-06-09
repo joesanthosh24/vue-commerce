@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+import store from "@/store";
+
 const routes = [
   {
     path: "/",
@@ -10,6 +12,9 @@ const routes = [
     path: "/items",
     name: "Items",
     component: () => import("../views/Items.vue"),
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/login",
@@ -25,6 +30,9 @@ const routes = [
     path: "/cart",
     name: "CartItems",
     component: () => import("../views/CartItems.vue"),
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/:catchAll(.*)*",
@@ -38,9 +46,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log("Global Guard");
+  if (!to.matched.some((record) => record.meta.requiresAuth)) {
+    next();
 
-  next();
+    return;
+  }
+
+  if (store.state.userLoggedIn) {
+    next();
+  } else {
+    next({ name: "Home" });
+  }
 });
 
 export default router;

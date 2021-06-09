@@ -35,16 +35,7 @@ export default {
       isLoggedIn: "userLoggedIn",
     }),
   },
-  beforeRouteEnter(to, from, next) {
-    if (store.state.userLoggedIn) {
-      console.log(store.getters.userLoggedIn);
-      next();
-    } else {
-      next({ name: "Home" });
-    }
-  },
   created() {
-    console.log(store.getters.shopItems);
     this.items = store.getters.shopItems;
   },
 };

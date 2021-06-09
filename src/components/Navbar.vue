@@ -47,7 +47,9 @@ export default {
     async signOut() {
       await this.$store.dispatch("signOut");
 
-      this.$router.push("/");
+      if (this.$route.meta.requiresAuth) {
+        this.$router.push("/");
+      }
     },
   },
 };
