@@ -13,7 +13,12 @@
     <div class="alert-msg">
       <p>{{ msg }}</p>
     </div>
-    <i @click="clicked" class="fas fa-times"></i>
+    <span
+      @click="clicked"
+      v-icon="{
+        icon: 'times',
+      }"
+    ></span>
   </div>
 </template>
 
@@ -47,7 +52,7 @@ export default {
   color: #fff;
 }
 
-.alert > i {
+.alert > span {
   cursor: pointer;
 }
 </style>

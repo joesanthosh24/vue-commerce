@@ -36,8 +36,13 @@
       width="expanded"
       @click="addItemToCart(item)"
       :disabled="disableButton"
+      v-icon.left="{
+        icon: 'cart-plus',
+        color: 'white',
+        spacing: 'space-right-sm',
+      }"
     >
-      <i class="fas fa-cart-plus"></i>Add To Cart
+      Add To Cart
     </app-button>
   </li>
 </template>

@@ -46,4 +46,26 @@ i {
   width: 75%;
   padding: 5px;
 }
+
+/* Colors */
+.white {
+  color: #fff;
+}
+
+.red {
+  color: rgb(223, 7, 7);
+}
+
+/* Spacing */
+.space-right-sm {
+  margin-right: 5px;
+}
+
+.space-right-md {
+  margin-right: 10px;
+}
+
+.space-right-lg {
+  margin-right: 15px;
+}
 </style>

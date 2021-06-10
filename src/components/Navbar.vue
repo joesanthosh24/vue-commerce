@@ -22,8 +22,19 @@
           <li class="navbar__item" @click.prevent="signOut">Logout</li>
           <router-link to="/cart">
             <li class="navbar__item">
-              <i v-if="cartSize === 0" class="fas fa-shopping-cart"></i>
-              <i v-else class="fas fa-cart-plus"></i>
+              <span
+                v-if="cartSize === 0"
+                v-icon="{
+                  icon: 'shopping-cart',
+                }"
+              ></span>
+              <span
+                v-else
+                v-icon="{
+                  icon: 'cart-plus',
+                  color: 'red',
+                }"
+              ></span>
             </li>
           </router-link>
         </template>
@@ -99,13 +110,5 @@ li {
 
 .navbar__item {
   margin-right: 20px;
-}
-
-.fa-shopping-cart {
-  color: #fff;
-}
-
-.fa-cart-plus {
-  color: rgb(223, 7, 7);
 }
 </style>
