@@ -1,4 +1,10 @@
 {
+  "cart": {
+    "add_items": "Add Items",
+    "items": "Cart Items",
+    "no_items": "No Items in Cart",
+    "total": "Total"
+  },
   "home": {
     "description": "Shop online for electronics, clothing, games, and more",
     "title": "Welcome to VueCommerce"

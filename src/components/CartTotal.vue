@@ -1,6 +1,6 @@
 <template>
   <div class="cartTotal">
-    <h3>Total</h3>
+    <h3>{{ $t("cart.total") }}</h3>
     <p>${{ total }}</p>
   </div>
 </template>

@@ -1,10 +1,12 @@
 <template>
   <app-container>
-    <h1>Cart Items</h1>
+    <h1>{{ $t("cart.items") }}</h1>
     <app-cart-container v-if="cartSize > 0" :items="items" />
     <p v-else class="no-items">
-      No Items in Cart.
-      <span class="add-items" @click="goToItems">Add Items</span>
+      {{ $t("cart.no_items") }}.
+      <span class="add-items" @click="goToItems">{{
+        $t("cart.add_items")
+      }}</span>
     </p>
     <app-cart-total v-if="cartSize > 0" />
   </app-container>
