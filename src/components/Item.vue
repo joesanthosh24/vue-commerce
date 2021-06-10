@@ -23,7 +23,7 @@
         {{ item.name.substring(0, 25)
         }}<span v-if="item.name.length > 25">...</span>
       </p>
-      <span>${{ item.price }}</span>
+      <span>{{ $n(item.price, "currency", "en") }}</span>
     </div>
     <app-button
       mt="5"

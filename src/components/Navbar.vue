@@ -8,10 +8,6 @@
       </router-link>
       <div class="navbar__items">
         <li class="navbar__item">
-          <!-- <select v-model="$i18n.locale">
-            <option value="en">English</option>
-            <option value="ja">Japanese</option>
-          </select> -->
           <app-language-selector />
         </li>
         <template v-if="!isLoggedIn">
