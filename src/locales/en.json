@@ -3,6 +3,17 @@
     "description": "Shop online for electronics, clothing, games, and more",
     "title": "Welcome to VueCommerce"
   },
+  "language": {
+    "english": "English",
+    "japanese": "Japanese",
+    "language": "Language"
+  },
   "login": "Login",
+  "logout": "Logout",
+  "shop": "Shop",
+  "shop_item": {
+    "add": "Add To Cart",
+    "details": "More Details"
+  },
   "signup": "Sign Up"
 }

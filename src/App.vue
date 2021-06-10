@@ -68,4 +68,16 @@ i {
 .space-right-lg {
   margin-right: 15px;
 }
+
+.space-left-sm {
+  margin-left: 5px;
+}
+
+.space-left-md {
+  margin-left: 10px;
+}
+
+.space-left-lg {
+  margin-left: 15px;
+}
 </style>

@@ -13,7 +13,7 @@
             mr="auto"
             :secondary="true"
             br="15"
-            >More Details</app-button
+            >{{ $t("shop_item.details") }}</app-button
           >
         </div>
       </transition>
@@ -36,13 +36,9 @@
       width="expanded"
       @click="addItemToCart(item)"
       :disabled="disableButton"
-      v-icon.left="{
-        icon: 'cart-plus',
-        color: 'white',
-        spacing: 'space-right-sm',
-      }"
     >
-      Add To Cart
+      <i class="fas fa-cart-plus white space-right-sm"></i>
+      {{ $t("shop_item.add") }}
     </app-button>
   </li>
 </template>

@@ -6,6 +6,7 @@ export default createStore({
     cartItems: [],
     userLoggedIn: false,
     shopItems: {},
+    languageBoxOpen: false,
   },
   mutations: {
     // Shopping Cart
@@ -31,6 +32,9 @@ export default createStore({
     // User Auth
     toggleAuthentication(state) {
       state.userLoggedIn = !state.userLoggedIn;
+    },
+    toggleLanguageBox(state) {
+      state.languageBoxOpen = !state.languageBoxOpen;
     },
   },
   actions: {
@@ -125,6 +129,9 @@ export default createStore({
 
       commit("toggleAuthentication");
       commit("clearCart");
+    },
+    toggleLanguageBox({ commit }) {
+      commit("toggleLanguageBox");
     },
   },
   getters: {

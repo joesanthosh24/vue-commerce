@@ -7,6 +7,13 @@
         </li>
       </router-link>
       <div class="navbar__items">
+        <li class="navbar__item">
+          <!-- <select v-model="$i18n.locale">
+            <option value="en">English</option>
+            <option value="ja">Japanese</option>
+          </select> -->
+          <app-language-selector />
+        </li>
         <template v-if="!isLoggedIn">
           <router-link to="/login">
             <li class="navbar__item">{{ $t("login") }}</li>
@@ -17,9 +24,11 @@
         </template>
         <template v-else>
           <router-link to="/items">
-            <li class="navbar__item">Shop</li>
+            <li class="navbar__item">{{ $t("shop") }}</li>
           </router-link>
-          <li class="navbar__item" @click.prevent="signOut">Logout</li>
+          <li class="navbar__item" @click.prevent="signOut">
+            {{ $t("logout") }}
+          </li>
           <router-link to="/cart">
             <li class="navbar__item">
               <span
@@ -46,6 +55,8 @@
 <script>
 import { mapGetters, mapState } from "vuex";
 
+import LanguageSelect from "./LanguageSelect.vue";
+
 export default {
   name: "Navbar",
   computed: {
@@ -53,6 +64,9 @@ export default {
     ...mapState({
       isLoggedIn: "userLoggedIn",
     }),
+  },
+  components: {
+    appLanguageSelector: LanguageSelect,
   },
   methods: {
     async signOut() {

@@ -3,6 +3,17 @@
     "description": " エレクトロニクス、衣類、ゲームなどを通販する",
     "title": "ビューコーマースへようこそ"
   },
+  "language": {
+    "english": "英語",
+    "japanese": "日本語",
+    "language": "言語"
+  },
   "login": " ログインする",
+  "logout": "ログアウト",
+  "shop": " ショップ",
+  "shop_item": {
+    "add": "カートに入れる",
+    "details": " 詳細はこちら"
+  },
   "signup": "サインアップ"
 }

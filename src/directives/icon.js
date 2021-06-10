@@ -20,14 +20,12 @@ export default {
       iconClass += ` ${spacing}`;
     }
 
-    let otherContent = el.innerHTML;
     let iconContent = `<i class="${iconClass}"></i>`;
-    let content = iconContent;
 
     if (binding.modifiers.left) {
-      content = iconContent + otherContent;
+      el.innerHTML = iconContent + el.innerHTML;
+    } else {
+      el.innerHTML += iconContent;
     }
-
-    el.innerHTML = content;
   },
 };
