@@ -1,23 +1,12 @@
 <template>
   <app-container>
     <vee-form @submit="submit" :validation-schema="schema">
-      <div
-        class="alert"
+      <app-alert-box
         v-if="show_alert"
-        :style="{
-          backgroundColor: alert_color,
-          padding: '10px',
-          margin: '20px',
-          color: '#fff',
-          width: '75%',
-          display: 'flex',
-        }"
-      >
-        <div class="alert-msg">
-          <p>{{ reg_alert }}</p>
-        </div>
-        <i @click="show_alert = false" class="fas fa-times"></i>
-      </div>
+        :msg="reg_alert"
+        :color="alert_color"
+        @closeBox="show_alert = false"
+      />
       <div class="input-container">
         <label for="name">Name: </label>
         <vee-field id="name" name="name" />
@@ -49,14 +38,16 @@
 <script>
 import { mapState } from "vuex";
 
-import Container from "../components/Container.vue";
-import Button from "../components/Button.vue";
+import Container from "@/components/Container.vue";
+import Button from "@/components/Button.vue";
+import AlertBox from "@/components/AlertBox.vue";
 
 export default {
   name: "SignUp",
   components: {
     appContainer: Container,
     appButton: Button,
+    appAlertBox: AlertBox,
   },
   data() {
     return {
@@ -116,18 +107,6 @@ form {
   height: 100%;
   width: 100%;
   padding-top: 140px;
-}
-
-.alert-msg {
-  flex: 1;
-}
-
-.alert-msg > p {
-  color: #fff;
-}
-
-.alert > i {
-  cursor: pointer;
 }
 
 .input-container {

@@ -1,23 +1,12 @@
 <template>
   <app-container>
     <vee-form @submit="submit" :validation-schema="schema">
-      <div
-        class="alert"
+      <app-alert-box
         v-if="show_alert"
-        :style="{
-          backgroundColor: alert_color,
-          padding: '10px',
-          margin: '20px',
-          color: '#fff',
-          width: '75%',
-          display: 'flex',
-        }"
-      >
-        <div class="alert-msg">
-          <p>{{ login_alert }}</p>
-        </div>
-        <i @click="show_alert = false" class="fas fa-times"></i>
-      </div>
+        :msg="login_alert"
+        :color="alert_color"
+        @closeBox="show_alert = false"
+      />
       <div class="input-container">
         <label for="email">Email: </label>
         <vee-field id="email" type="email" name="email" />
@@ -44,14 +33,16 @@
 <script>
 import { mapState } from "vuex";
 
-import Container from "../components/Container.vue";
-import Button from "../components/Button.vue";
+import Container from "@/components/Container.vue";
+import Button from "@/components/Button.vue";
+import AlertBox from "@/components/AlertBox.vue";
 
 export default {
   name: "Login",
   components: {
     appContainer: Container,
     appButton: Button,
+    appAlertBox: AlertBox,
   },
   data() {
     return {
@@ -117,18 +108,6 @@ form {
   align-items: center;
   width: 75%;
   margin-bottom: 10px;
-}
-
-.alert-msg {
-  flex: 1;
-}
-
-.alert-msg > p {
-  color: #fff;
-}
-
-.alert > i {
-  cursor: pointer;
 }
 
 input {
