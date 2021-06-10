@@ -24,7 +24,7 @@
         pb="10"
         :primary="true"
         br="30"
-        >Login</app-button
+        >{{ $t("login") }}</app-button
       >
     </vee-form>
   </app-container>

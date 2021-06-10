@@ -9,10 +9,10 @@
       <div class="navbar__items">
         <template v-if="!isLoggedIn">
           <router-link to="/login">
-            <li class="navbar__item">Login</li>
+            <li class="navbar__item">{{ $t("login") }}</li>
           </router-link>
           <router-link to="/signup">
-            <li class="navbar__item">Sign Up</li>
+            <li class="navbar__item">{{ $t("signup") }}</li>
           </router-link>
         </template>
         <template v-else>

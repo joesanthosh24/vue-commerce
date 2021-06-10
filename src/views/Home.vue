@@ -2,8 +2,8 @@
   <div class="home">
     <img src="@/assets/logo.png" alt="Logo" />
     <div class="home__content">
-      <h1>Welcome to VueCommerce</h1>
-      <p>Shop online for electronics, clothing, games, and more</p>
+      <h1>{{ $t("home.title") }}</h1>
+      <p>{{ $t("home.description") }}</p>
       <div class="home__buttons">
         <router-link to="/login">
           <app-button
@@ -15,12 +15,12 @@
             :dark="true"
             br="15"
           >
-            Login
+            {{ $t("login") }}
           </app-button>
         </router-link>
         <router-link to="/signup">
           <app-button pl="15" pr="15" pt="5" pb="5" :light="true" br="15">
-            Sign Up
+            {{ $t("signup") }}
           </app-button>
         </router-link>
       </div>
