@@ -37,7 +37,6 @@ export default {
     ...mapActions(["toggleLanguageBox", "changeLocale"]),
     changeLocaleValue(locale) {
       this.changeLocale(locale);
-      this.$i18n.locale = locale;
 
       this.toggleLanguageBox();
     },

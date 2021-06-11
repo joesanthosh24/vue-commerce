@@ -1,6 +1,8 @@
 import { createStore } from "vuex";
 import { auth, usersCollection, itemsCollection } from "@/includes/firebase";
 
+import i18n from "../includes/i18n";
+
 export default createStore({
   state: {
     cartItems: [],
@@ -38,7 +40,7 @@ export default createStore({
     toggleLanguageBox(state) {
       state.languageBoxOpen = !state.languageBoxOpen;
     },
-    changeLocale(state, locale) {
+    setLocale(state, locale) {
       state.locale = locale;
     },
   },
@@ -140,7 +142,9 @@ export default createStore({
       commit("toggleLanguageBox");
     },
     changeLocale({ commit }, locale) {
-      commit("changeLocale", locale);
+      commit("setLocale", locale);
+
+      i18n.global.locale = this.state.locale;
     },
   },
   getters: {
