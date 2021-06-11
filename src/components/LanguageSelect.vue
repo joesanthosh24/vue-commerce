@@ -9,7 +9,7 @@
         class="language"
         v-for="language in languages"
         :key="language.locale_name"
-        @click="changeLocale(language.locale)"
+        @click="changeLocaleValue(language.locale)"
       >
         {{ $t(`${language.locale_name}`) }}
       </p>
@@ -31,11 +31,12 @@ export default {
     };
   },
   computed: {
-    ...mapState(["languageBoxOpen"]),
+    ...mapState(["languageBoxOpen", "locale"]),
   },
   methods: {
-    ...mapActions(["toggleLanguageBox"]),
-    changeLocale(locale) {
+    ...mapActions(["toggleLanguageBox", "changeLocale"]),
+    changeLocaleValue(locale) {
+      this.changeLocale(locale);
       this.$i18n.locale = locale;
 
       this.toggleLanguageBox();
