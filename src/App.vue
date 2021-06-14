@@ -15,7 +15,7 @@ export default {
     appContainer: Container,
   },
   async created() {
-    this.$store.dispatch("initApp");
+    await this.$store.dispatch("initApp");
     this.$store.dispatch("changeLocale", this.$i18n.locale);
 
     await this.$store.dispatch("initializeShopItems");

@@ -52,6 +52,8 @@ router.beforeEach((to, from, next) => {
     return;
   }
 
+  store.dispatch("hideLanguageBox");
+
   if (store.state.userLoggedIn) {
     next();
   } else {

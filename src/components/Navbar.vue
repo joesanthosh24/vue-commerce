@@ -68,6 +68,8 @@ export default {
     async signOut() {
       await this.$store.dispatch("signOut");
 
+      this.$store.dispatch("hideLanguageBox");
+
       if (this.$route.meta.requiresAuth) {
         this.$router.push("/");
       }

@@ -43,6 +43,9 @@ export default createStore({
     setLocale(state, locale) {
       state.locale = locale;
     },
+    hideLanguageBox(state) {
+      state.languageBoxOpen = false;
+    },
   },
   actions: {
     // Shopping Cart
@@ -145,6 +148,9 @@ export default createStore({
       commit("setLocale", locale);
 
       i18n.global.locale = this.state.locale;
+    },
+    hideLanguageBox({ commit }) {
+      commit("hideLanguageBox");
     },
   },
   getters: {
