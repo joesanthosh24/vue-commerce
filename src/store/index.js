@@ -7,7 +7,7 @@ export default createStore({
   state: {
     cartItems: [],
     userLoggedIn: false,
-    shopItems: {},
+    shopItems: [],
     languageBoxOpen: false,
     locale: "en",
   },
@@ -186,6 +186,9 @@ export default createStore({
       );
 
       return shopItems;
+    },
+    getItem(state, id) {
+      return state.shopItems.find((item) => item.id === id);
     },
   },
   modules: {},

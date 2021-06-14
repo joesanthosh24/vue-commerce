@@ -13,6 +13,7 @@
             mr="auto"
             :secondary="true"
             br="15"
+            @click="goToItem"
             >{{ $t("shop_item.details") }}</app-button
           >
         </div>
@@ -65,6 +66,9 @@ export default {
     },
     leaveImage() {
       this.showDetailButton = false;
+    },
+    goToItem() {
+      this.$router.push(`/items/${this.item.id}`);
     },
     ...mapActions(["addItemToCart"]),
   },

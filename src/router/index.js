@@ -35,6 +35,14 @@ const routes = [
     },
   },
   {
+    path: "/items/:id",
+    name: "Item",
+    component: () => import("../views/Item.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/:catchAll(.*)*",
     redirect: "/",
   },
