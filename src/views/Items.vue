@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     ...mapState({
-      isLoggedIn: "userLoggedIn",
+      isLoggedIn: (state) => state.auth.userLoggedIn,
     }),
   },
   async created() {

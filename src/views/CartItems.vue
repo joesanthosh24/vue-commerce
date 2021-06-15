@@ -36,7 +36,7 @@ export default {
   computed: {
     ...mapGetters(["cartSize"]),
     ...mapState({
-      items: "cartItems",
+      items: (state) => state.cart.cartItems,
     }),
   },
 };

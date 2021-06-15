@@ -31,7 +31,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(["languageBoxOpen", "locale"]),
+    ...mapState({
+      languageBoxOpen: (state) => state.localizations.languageBoxOpen,
+      locale: (state) => state.localizations.locale,
+    }),
   },
   methods: {
     ...mapActions(["toggleLanguageBox", "changeLocale"]),

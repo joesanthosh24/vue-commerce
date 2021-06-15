@@ -78,8 +78,6 @@ export default {
 <style scoped>
 .product {
   margin-right: 20px;
-  /* height: 20%;
-  width: 20%; */
 }
 
 .productImage {

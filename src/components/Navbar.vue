@@ -58,7 +58,7 @@ export default {
   computed: {
     ...mapGetters(["cartSize"]),
     ...mapState({
-      isLoggedIn: "userLoggedIn",
+      isLoggedIn: (state) => state.auth.userLoggedIn,
     }),
   },
   components: {
