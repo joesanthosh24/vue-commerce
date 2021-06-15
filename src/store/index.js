@@ -7,7 +7,6 @@ export default createStore({
   state: {
     cartItems: [],
     userLoggedIn: false,
-    shopItems: [],
     languageBoxOpen: false,
     locale: "en",
   },
@@ -85,18 +84,6 @@ export default createStore({
         }
       }
     },
-    // Shopping Items
-    async initializeShopItems({ commit }) {
-      const shopItems = [];
-
-      await itemsCollection.onSnapshot((items) => {
-        items.docs.forEach((doc) => {
-          shopItems.push({ ...doc.data(), id: doc.id });
-        });
-      });
-
-      commit("initItems", shopItems);
-    },
     // User Authentication
     async register({ commit }, payload) {
       const userCredentials = await auth.createUserWithEmailAndPassword(
@@ -131,8 +118,6 @@ export default createStore({
       if (user) {
         commit("toggleAuthentication");
       }
-
-      await this.dispatch("initializeShopItems");
     },
     async signOut({ commit }) {
       await auth.signOut();

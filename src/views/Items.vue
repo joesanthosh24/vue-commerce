@@ -14,7 +14,7 @@
 <script>
 import { mapState } from "vuex";
 
-import store from "@/store";
+import { itemsCollection } from "@/includes/firebase";
 
 import Container from "@/components/Container.vue";
 import ItemCategory from "@/components/ItemCategory.vue";
@@ -35,8 +35,27 @@ export default {
       isLoggedIn: "userLoggedIn",
     }),
   },
-  created() {
-    this.items = store.getters.shopItems;
+  async created() {
+    await itemsCollection.onSnapshot((items) => {
+      items.docs.forEach((doc) => {
+        const { category, description, imgUrl, name, price } = doc.data();
+        const id = doc.id;
+
+        if (!this.items[category]) {
+          this.items[category] = {};
+          this.items[category].category = category;
+          this.items[category].products = [];
+        }
+
+        this.items[category].products.push({
+          description,
+          imgUrl,
+          name,
+          price,
+          id,
+        });
+      });
+    });
   },
 };
 </script>

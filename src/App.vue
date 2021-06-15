@@ -17,8 +17,6 @@ export default {
   async created() {
     await this.$store.dispatch("initApp");
     this.$store.dispatch("changeLocale", this.$i18n.locale);
-
-    await this.$store.dispatch("initializeShopItems");
   },
 };
 </script>

@@ -16,6 +16,10 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
+db.enablePersistence().catch((err) => {
+  console.log(`Firebase persistence error ${error.code}`);
+});
+
 const usersCollection = db.collection("users");
 const itemsCollection = db.collection("items");
 
