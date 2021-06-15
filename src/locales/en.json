@@ -21,5 +21,10 @@
     "add": "Add To Cart",
     "details": "More Details"
   },
-  "signup": "Sign Up"
+  "signup": "Sign Up",
+  "categories": {
+    "category": "Category",
+    "electronics": "Electronics",
+    "clothes/sneakers": "Clothes/Sneakers"
+  }
 }

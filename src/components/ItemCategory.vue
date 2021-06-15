@@ -1,6 +1,6 @@
 <template>
   <div class="items">
-    <h2>{{ category }}</h2>
+    <h2>{{ $t(`categories.${[category.toLowerCase()]}`) }}</h2>
     <ul class="products">
       <app-item
         :disableButton="disableAddButton"

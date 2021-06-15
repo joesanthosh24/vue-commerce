@@ -21,5 +21,10 @@
     "add": "カートに入れる",
     "details": " 詳細はこちら"
   },
-  "signup": "サインアップ"
+  "signup": "サインアップ",
+  "categories": {
+    "category": "カテゴリー",
+    "electronics": "エレクトロニクス",
+    "clothes/sneakers": "衣類と履物"
+  }
 }
