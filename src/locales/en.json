@@ -23,8 +23,13 @@
   },
   "signup": "Sign Up",
   "categories": {
-    "category": "Category",
     "electronics": "Electronics",
     "clothes/sneakers": "Clothes/Sneakers"
+  },
+  "itemDetails": {
+    "name": "Name",
+    "description": "Description",
+    "price": "Price",
+    "category": "Category"
   }
 }

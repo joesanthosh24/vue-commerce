@@ -45,7 +45,7 @@ export default {
     await itemsCollection.onSnapshot((items) => {
       items.docs.forEach((doc) => {
         if (doc.id === this.$route.params.id) {
-          this.item = doc.data();
+          this.item = { ...doc.data(), id: doc.id };
         }
       });
     });

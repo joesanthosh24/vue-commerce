@@ -2,7 +2,7 @@
   <div class="table">
     <div class="table-row">
       <div class="table-title">
-        <p>Name</p>
+        <p>{{ $t("itemDetails.name") }}</p>
       </div>
       <div class="table-content">
         <p>{{ item.name }}</p>
@@ -10,15 +10,15 @@
     </div>
     <div class="table-row">
       <div class="table-title">
-        <p>Category</p>
+        <p>{{ $t("itemDetails.category") }}</p>
       </div>
       <div class="table-content">
-        <p>{{ item.category }}</p>
+        <p>{{ $t(`categories.${[categoryLowerCase]}`) }}</p>
       </div>
     </div>
     <div class="table-row">
       <div class="table-title">
-        <p>Description</p>
+        <p>{{ $t("itemDetails.description") }}</p>
       </div>
       <div class="table-content">
         <p>{{ item.description }}</p>
@@ -26,7 +26,7 @@
     </div>
     <div class="table-row">
       <div class="table-title">
-        <p>Price</p>
+        <p>{{ $t("itemDetails.price") }}</p>
       </div>
       <div class="table-content">
         <p>$ {{ item.price }}</p>
@@ -39,6 +39,12 @@
 export default {
   name: "ItemTable",
   props: ["item"],
+  computed: {
+    categoryLowerCase() {
+      console.log(this.item);
+      return String(this.item.category).toLowerCase();
+    },
+  },
 };
 </script>
 

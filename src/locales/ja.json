@@ -23,8 +23,13 @@
   },
   "signup": "サインアップ",
   "categories": {
-    "category": "カテゴリー",
     "electronics": "エレクトロニクス",
     "clothes/sneakers": "衣類と履物"
+  },
+  "itemDetails": {
+    "name": "名称",
+    "description": "デスクリプション",
+    "price": "価格",
+    "category": "カテゴリー"
   }
 }
