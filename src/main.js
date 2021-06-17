@@ -7,11 +7,15 @@ import store from "./store";
 
 import VeeValidatorPlugin from "./includes/validation";
 import { auth } from "./includes/firebase";
+import ProgressBar from "./includes/progress_bar";
+import i18n from "./includes/i18n";
 
 import Icon from "./directives/icon";
 
-import i18n from "./includes/i18n";
-import './registerServiceWorker'
+import "./registerServiceWorker";
+import "nprogress/nprogress.css";
+
+ProgressBar(router);
 
 // set a variable which will be set to createApp() if app isn't initialized in onAuthStateChanged()
 let app;
