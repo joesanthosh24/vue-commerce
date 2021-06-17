@@ -1,13 +1,7 @@
 import { createStore } from "vuex";
 
-import cart from "./modules/cart";
-import auth from "./modules/auth";
-import localizations from "./modules/localizations";
+import modules from "./modules";
 
 export default createStore({
-  modules: {
-    cart,
-    auth,
-    localizations,
-  },
+  modules,
 });
