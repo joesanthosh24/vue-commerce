@@ -6,7 +6,7 @@
       <p>{{ $t("home.description") }}</p>
       <div class="home__buttons">
         <router-link to="/login">
-          <app-button
+          <base-button
             pl="15"
             pr="15"
             pt="5"
@@ -16,12 +16,12 @@
             br="15"
           >
             {{ $t("login") }}
-          </app-button>
+          </base-button>
         </router-link>
         <router-link to="/signup">
-          <app-button pl="15" pr="15" pt="5" pb="5" :light="true" br="15">
+          <base-button pl="15" pr="15" pt="5" pb="5" :light="true" br="15">
             {{ $t("signup") }}
-          </app-button>
+          </base-button>
         </router-link>
       </div>
     </div>
@@ -31,13 +31,8 @@
 <script>
 import { mapState } from "vuex";
 
-import Button from "../components/Button.vue";
-
 export default {
   name: "Home",
-  components: {
-    appButton: Button,
-  },
   computed: {
     ...mapState({
       isLoggedIn: (state) => state.auth.userLoggedIn,

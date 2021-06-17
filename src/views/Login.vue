@@ -1,7 +1,7 @@
 <template>
   <app-container>
     <vee-form @submit="submit" :validation-schema="schema">
-      <app-alert-box
+      <base-alert-box
         v-if="show_alert"
         :msg="login_alert"
         :color="alert_color"
@@ -17,14 +17,14 @@
         <vee-field id="password" type="password" name="password" />
       </div>
       <error-message class="error" name="password" />
-      <app-button
+      <base-button
         type="submit"
         width="3"
         pt="10"
         pb="10"
         :primary="true"
         br="30"
-        >{{ $t("login") }}</app-button
+        >{{ $t("login") }}</base-button
       >
     </vee-form>
   </app-container>
@@ -34,15 +34,11 @@
 import { mapState } from "vuex";
 
 import Container from "@/components/Container.vue";
-import Button from "@/components/Button.vue";
-import AlertBox from "@/components/AlertBox.vue";
 
 export default {
   name: "Login",
   components: {
     appContainer: Container,
-    appButton: Button,
-    appAlertBox: AlertBox,
   },
   data() {
     return {

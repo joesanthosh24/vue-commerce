@@ -15,6 +15,8 @@ import Icon from "./directives/icon";
 import "./registerServiceWorker";
 import "nprogress/nprogress.css";
 
+import GlobalComponents from "./includes/_globals";
+
 ProgressBar(router);
 
 // set a variable which will be set to createApp() if app isn't initialized in onAuthStateChanged()
@@ -28,6 +30,7 @@ auth.onAuthStateChanged(() => {
     app.use(store);
     app.use(router);
     app.use(VeeValidatorPlugin);
+    app.use(GlobalComponents);
     app.directive("icon", Icon);
 
     app.mount("#app");

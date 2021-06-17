@@ -4,7 +4,7 @@
       <img :src="item.imgUrl" :alt="item.name" />
       <transition name="appear">
         <div class="detailButtonContainer" v-if="showDetailButton">
-          <app-button
+          <base-button
             pt="10"
             pb="10"
             pl="20"
@@ -14,7 +14,7 @@
             :secondary="true"
             br="15"
             @click="goToItem"
-            >{{ $t("shop_item.details") }}</app-button
+            >{{ $t("shop_item.details") }}</base-button
           >
         </div>
       </transition>
@@ -26,7 +26,7 @@
       </p>
       <span>{{ $n(item.price, "currency", "en") }}</span>
     </div>
-    <app-button
+    <base-button
       mt="5"
       pt="10"
       pb="10"
@@ -40,20 +40,15 @@
     >
       <i class="fas fa-cart-plus white space-right-sm"></i>
       {{ $t("shop_item.add") }}
-    </app-button>
+    </base-button>
   </li>
 </template>
 
 <script>
 import { mapActions } from "vuex";
 
-import Button from "./Button.vue";
-
 export default {
   name: "Item",
-  components: {
-    appButton: Button,
-  },
   props: ["item", "disableButton"],
   data() {
     return {
