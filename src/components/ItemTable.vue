@@ -41,7 +41,6 @@ export default {
   props: ["item"],
   computed: {
     categoryLowerCase() {
-      console.log(this.item);
       return String(this.item.category).toLowerCase();
     },
   },
