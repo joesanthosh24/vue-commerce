@@ -23,3 +23,7 @@ pnpm-debug.log*
 *.sw?
 
 .vercel
+
+# Testing
+tests/
+jest.config.js
