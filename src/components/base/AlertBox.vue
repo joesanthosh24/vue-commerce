@@ -4,7 +4,8 @@
     :style="{
       backgroundColor: color,
       padding: '10px',
-      margin: '20px',
+      marginTop: '20px',
+      marginBottom: '20px',
       color: '#fff',
       width: '75%',
       display: 'flex',

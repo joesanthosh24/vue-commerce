@@ -22,5 +22,6 @@ db.enablePersistence().catch((err) => {
 
 const usersCollection = db.collection("users");
 const itemsCollection = db.collection("items");
+const reviewsCollection = db.collection("reviews");
 
-export { auth, db, usersCollection, itemsCollection };
+export { auth, db, usersCollection, itemsCollection, reviewsCollection };

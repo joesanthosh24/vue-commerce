@@ -17,6 +17,7 @@
       <i class="fas fa-cart-plus white space-right-sm"></i>
       {{ $t("shop_item.add") }}
     </base-button>
+    <app-item-reviews />
   </app-container>
 </template>
 
@@ -27,12 +28,14 @@ import { itemsCollection } from "@/includes/firebase";
 
 import Container from "@/components/Container.vue";
 import ItemTable from "@/components/ItemTable.vue";
+import ItemReviews from "@/components/ItemReviews.vue";
 
 export default {
   name: "Item",
   components: {
     appContainer: Container,
     appItemTable: ItemTable,
+    appItemReviews: ItemReviews,
   },
   data() {
     return {

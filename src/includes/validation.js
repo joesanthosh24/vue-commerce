@@ -5,7 +5,16 @@ import {
   defineRule,
   configure,
 } from "vee-validate";
-import { required, min, max, alpha_spaces, email } from "@vee-validate/rules";
+import {
+  required,
+  min,
+  max,
+  alpha_spaces,
+  email,
+  integer,
+  min_value,
+  max_value,
+} from "@vee-validate/rules";
 
 export default {
   install(app) {
@@ -18,6 +27,9 @@ export default {
     defineRule("max", max);
     defineRule("alpha_spaces", alpha_spaces);
     defineRule("email", email);
+    defineRule("integer", integer);
+    defineRule("min_value", min_value);
+    defineRule("max_value", max_value);
 
     configure({
       // generateMessage function takes context object and called whenever a global validator function returns false. We return message we want to return for error
@@ -28,6 +40,9 @@ export default {
           max: `The field ${ctx.field} is too long`,
           alpha_spaces: `The field ${ctx.field} may only contain alphabetical characters and spaces`,
           email: `The field ${ctx.field} must be a valid email`,
+          integer: `The field ${ctx.field} must be a valid whole number`,
+          min_value: `The field ${ctx.field} number is below minimum value`,
+          max_value: `The field ${ctx.field} number is above maximum value`,
         };
 
         // ctx.rule.name refers to name of rule broken
